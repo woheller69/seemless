@@ -16,23 +16,20 @@ android {
         applicationId "org.woheller69.seemless"
         minSdk 28
         targetSdk 34
-        versionCode 1
+        versionCode 10
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        // Removed NDK and ABI filters
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
         }
     }
-
-    // Removed externalNativeBuild block
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -61,28 +58,4 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     implementation 'org.pytorch:pytorch_android_lite:2.1.0'
 
-    // Main TensorFlow Lite library
-    implementation 'org.tensorflow:tensorflow-lite:2.14.0'
-    implementation 'org.tensorflow:tensorflow-lite-support:0.4.4'
-
-// TensorFlow Lite GPU delegate for acceleration
-//    implementation 'org.tensorflow:tensorflow-lite-gpu:2.14.0'
-//    implementation 'org.tensorflow:tensorflow-lite-gpu-api:2.14.0'
-//    implementation 'org.tensorflow:tensorflow-lite-gpu-delegate-plugin:0.4.2'
-//    implementation 'com.google.android.gms:play-services-tflite-gpu:16.2.0' // Google Play Services TFLite library
-
-    // Import tflite dependencies
-//    implementation 'com.google.ai.edge.litert:litert:1.0.1'
-//    implementation 'com.google.ai.edge.litert:litert-support:1.0.1'
-//
-//    // The GPU delegate library is optional. Depend on it as needed.
-//    implementation 'com.google.ai.edge.litert:litert-gpu:1.0.1'
-
-    // LiteRT dependencies for Google Play services
-//    implementation 'com.google.android.gms:play-services-tflite-java:16.1.0'
-
-    // Optional: include LiteRT Support Library
-//    implementation 'com.google.android.gms:play-services-tflite-support:16.1.0'
-
-//    implementation files('libs/jlibrosa-1.1.8-SNAPSHOT-jar-with-dependencies.jar')
 }
