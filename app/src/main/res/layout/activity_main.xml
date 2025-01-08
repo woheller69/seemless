@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:background="@drawable/rounded_button_background"
             android:text="Eng" />
 
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:background="@drawable/rounded_button_background"
             android:text="Spa" />
 
@@ -59,9 +59,17 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:background="@drawable/rounded_button_background"
             android:text="Por" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnTransHin"
@@ -69,9 +77,19 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:background="@drawable/rounded_button_background"
             android:text="Hin" />
+
+        <Button
+            android:id="@+id/btnTransRus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:background="@drawable/rounded_button_background"
+            android:text="Rus" />
     </LinearLayout>
 
     <ProgressBar
@@ -92,6 +110,7 @@
             android:id="@+id/tvResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text = "@string/instructions"
             android:textSize="17sp" />
     </ScrollView>
 

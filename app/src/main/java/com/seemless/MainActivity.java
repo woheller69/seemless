@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTransSpa;
     private Button btnTransPor;
     private Button btnTransHin;
+    private Button btnTransRus;
     private ProgressBar processingBar;
 
     private Recorder mRecorder = null;
@@ -138,6 +139,18 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        btnTransRus = findViewById(R.id.btnTransRus);
+        btnTransRus.setOnClickListener(v -> {
+            if (mRecorder != null && mRecorder.isInProgress()) {
+                Log.d(TAG, "Recording is in progress... stopping...");
+                stopRecording();
+            }
+            resetLanguageButtons();
+            btnTransRus.setBackgroundResource(R.drawable.rounded_button_background_pressed);
+            startTranslation("rus");
+
+        });
+
         tvResult = findViewById(R.id.tvResult);
         fabCopy = findViewById(R.id.fabCopy);
         fabCopy.setOnClickListener(v -> {
@@ -169,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
         // Assume this Activity is the current activity, check record permission
         checkRecordPermission();
@@ -251,5 +263,6 @@ public class MainActivity extends AppCompatActivity {
         btnTransSpa.setBackgroundResource(R.drawable.rounded_button_background);
         btnTransPor.setBackgroundResource(R.drawable.rounded_button_background);
         btnTransHin.setBackgroundResource(R.drawable.rounded_button_background);
+        btnTransRus.setBackgroundResource(R.drawable.rounded_button_background);
     }
 }

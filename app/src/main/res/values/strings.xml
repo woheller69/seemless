@@ -6,4 +6,5 @@
     <string name="download_model">Download Model</string>
     <string name="download_model_text">\nDownload Seemless M4T unity model from Hugging Face (~480 MB)</string>
     <string name="start">Start</string>
+    <string name="instructions">Press and hold RECORD while speaking, then select target language</string>
 </resources>
