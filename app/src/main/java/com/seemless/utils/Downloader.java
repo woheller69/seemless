@@ -80,7 +80,7 @@ public class Downloader {
                         if (modelMultiLingualBaseFile.exists()) downloadModelMultiLingualBaseSize = modelMultiLingualBaseFile.length();
                         activity.runOnUiThread(() -> {
                             binding.downloadSize.setText((downloadModelMultiLingualBaseSize)/1024/1024 + " MB");
-                            binding.downloadProgress.setProgress((int) (((double)(downloadModelMultiLingualBaseSize) / (downloadModelMultiLingualBaseSize)) * 100));
+                            binding.downloadProgress.setProgress((int) (((double)(downloadModelMultiLingualBaseSize) / (modelMultiLingualBaseSize)) * 100));
                         });
                     }
                     outStream.flush();
