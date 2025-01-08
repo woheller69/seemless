@@ -12,6 +12,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tvResult;
     private FloatingActionButton fabCopy;
-    private Button btnRecord;
+    private ImageButton btnRecord;
     private Button btnTransEng;
     private Button btnTransSpa;
     private Button btnTransPor;
