@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Seemless</string>
+    <string name="record">Record</string>
+    <string name="need_record_audio_permission">"This app needs RECORD_AUDIO permission"</string>
+    <string name="error_download">Download error</string>
+    <string name="download_model">Download Model</string>
+    <string name="download_model_text">\nDownload Seemless M4T unity model from Hugging Face (~480 MB)</string>
+    <string name="start">Start</string>
+</resources>
