@@ -1,0 +1,14 @@
+Offline speech to text tranlator based on Seemless M4T
+
+As a standalone app Seemless can translate between English, Spanish, Portuguese, Hindi, and Russian.
+
+Upon launching Seemless for the first time, the app will download the necessary model from Hugging Face.
+Please note that this is the only instance where internet permission is required.
+Once the model is downloaded, speech to text translation works entirely offline, ensuring your privacy and convenience.
+
+To get the most out of Seemless, follow these simple tips:
+
+- Press and hold the microphone button while speaking.
+- Pause briefly before starting to speak.
+- Speak clearly, loudly, and at a moderate pace.
+- Then select the target language
