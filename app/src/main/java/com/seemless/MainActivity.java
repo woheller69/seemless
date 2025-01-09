@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
             public void onUpdateReceived(String message) {
                 Log.d(TAG, "Update is received, Message: " + message);
                 if (message.equals(Recorder.MSG_RECORDING)) {
-                    tvResult.setText("");
+                    handler.post(() -> tvResult.setText(""));
                     handler.post(() -> btnRecord.setBackgroundResource(R.drawable.rounded_button_background_pressed));
                 } else if (message.equals(Recorder.MSG_RECORDING_DONE)) {
                     handler.post(() -> btnRecord.setBackgroundResource(R.drawable.rounded_button_background));
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startTranslation(String lang) {
-        tvResult.setText("");
+        handler.post(() -> tvResult.setText(""));
         processingBar.setIndeterminate(true);
         float[] samples = RecordBuffer.getSamples();
         if (samples.length == 0) {
