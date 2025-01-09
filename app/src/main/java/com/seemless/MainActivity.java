@@ -63,15 +63,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        processingBar = findViewById(R.id.processing_bar);
 
-        // Call the method to copy specific file types from assets to data folder
-        sdcardDataFolder = this.getExternalFilesDir(null);
 
         // Initialize default model to use
+        sdcardDataFolder = this.getExternalFilesDir(null);
         selectedTfliteFile = new File(sdcardDataFolder, DEFAULT_MODEL_TO_USE);
+        initModel();
 
-        // Implementation of record button functionality
         btnRecord = findViewById(R.id.btnRecord);
 
         btnRecord.setOnTouchListener((v, event) -> {
@@ -91,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        // Implementation of transcribe button functionality
         btnTransEng = findViewById(R.id.btnTransEng);
         btnTransEng.setOnClickListener(v -> {
             if (mRecorder != null && mRecorder.isInProgress()) {
@@ -155,16 +152,14 @@ public class MainActivity extends AppCompatActivity {
         tvResult = findViewById(R.id.tvResult);
         fabCopy = findViewById(R.id.fabCopy);
         fabCopy.setOnClickListener(v -> {
-            // Get the text from tvResult
             String textToCopy = tvResult.getText().toString();
-
-            // Copy the text to the clipboard
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clip = ClipData.newPlainText("Copied Text", textToCopy);
             clipboard.setPrimaryClip(clip);
         });
 
-        // Audio recording functionality
+        processingBar = findViewById(R.id.processing_bar);
+
         mRecorder = new Recorder(this);
         mRecorder.setListener(new Recorder.RecorderListener() {
             @Override
@@ -184,7 +179,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Assume this Activity is the current activity, check record permission
         checkRecordPermission();
 
     }
@@ -192,7 +186,6 @@ public class MainActivity extends AppCompatActivity {
     private void startTranslation(String lang) {
         tvResult.setText("");
         processingBar.setIndeterminate(true);
-        if (module == null) module = LiteModuleLoader.load(selectedTfliteFile.getAbsolutePath());
         float[] samples = RecordBuffer.getSamples();
         if (samples.length == 0) {
             resetLanguageButtons();
@@ -209,16 +202,22 @@ public class MainActivity extends AppCompatActivity {
          // Run the model
         Thread thread = new Thread(() -> {
             Log.d("Inference","Inference started");
+            if (module != null){
+                IValue outputs = module.forward(IValue.from(inTensor), IValue.from(lang));
 
-            IValue outputs = module.forward(IValue.from(inTensor), IValue.from(lang));
-
-            Log.d("Inference","Inference finished");
-            String text = outputs.toStr();
-            runOnUiThread(() -> {
-                tvResult.setText(text);
-                processingBar.setIndeterminate(false);
-            });
-            Log.d("Output","Inference output "+text);
+                Log.d("Inference","Inference finished");
+                String text = outputs.toStr();
+                runOnUiThread(() -> {
+                    tvResult.setText(text);
+                    processingBar.setIndeterminate(false);
+                });
+                Log.d("Output","Inference output "+text);
+            } else {
+                runOnUiThread(() -> {
+                    processingBar.setIndeterminate(false);
+                });
+                Log.d("Output","Inference output :"+ "Model not ready");
+            }
 
         });
         thread.start();
@@ -226,6 +225,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private void initModel(){
+        Thread thread = new Thread(() -> {
+            if (module == null) module = LiteModuleLoader.load(selectedTfliteFile.getAbsolutePath());
+        });
+        thread.start();
+    }
     private void checkRecordPermission() {
         int permission = ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO);
         if (permission == PackageManager.PERMISSION_GRANTED) {
