@@ -4,11 +4,6 @@ plugins {
 }
 
 android {
-    signingConfigs {
-        release {
-            // Add signing configurations here if needed
-        }
-    }
     namespace 'com.seemless'
     compileSdk 34
 
@@ -18,16 +13,31 @@ android {
         targetSdk 34
         versionCode 10
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+//    productFlavors {
+//        __32bit {
+//            versionCode android.defaultConfig.versionCode + 1
+//            ndk {
+//                abiFilter "armeabi-v7a"
+//            }
+//        }
+//        __64bit {
+//            versionCode android.defaultConfig.versionCode + 2
+//            ndk {
+//               abiFilter "arm64-v8a"
+//            }
+//        }
+//    }
 
     buildTypes {
         release {
             ndk {
                 //noinspection ChromeOsAbiSupport
-                abiFilters "armeabi-v7a", "arm64-v8a"
+                abiFilters "arm64-v8a"
             }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
