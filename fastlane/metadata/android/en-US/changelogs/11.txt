@@ -1,0 +1,4 @@
+Restrict to ARM64
+New icon
+Bugfixes
+EditText instead of TextView
