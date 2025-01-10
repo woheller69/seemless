@@ -12,9 +12,10 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.TextView;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String DEFAULT_MODEL_TO_USE = "unity_on_device_s2t.ptl";
 
-    private TextView tvResult;
+    private EditText tvResult;
     private FloatingActionButton fabCopy;
     private ImageButton btnRecord;
     private Button btnTransEng;
@@ -150,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         tvResult = findViewById(R.id.tvResult);
+        tvResult.setOnClickListener(view -> tvResult.setCursorVisible(true));
         fabCopy = findViewById(R.id.fabCopy);
         fabCopy.setOnClickListener(v -> {
             String textToCopy = tvResult.getText().toString();
@@ -178,7 +180,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (tvResult.isCursorVisible()) tvResult.setCursorVisible(false);
+                else finish();
+            }
+        });
+        if (GithubStar.shouldShowStarDialog(this)) GithubStar.starDialog(this, "https://github.com/woheller69/seemless");
         checkRecordPermission();
 
     }

@@ -19,14 +19,14 @@ android {
         buildConfig = true
     }
 //    productFlavors {
-//        __32bit {
-//            versionCode android.defaultConfig.versionCode + 1
+//        __armeabi-v7a {
+//            versionCode android.defaultConfig.versionCode * 10 + 1
 //            ndk {
 //                abiFilter "armeabi-v7a"
 //            }
 //        }
-//        __64bit {
-//            versionCode android.defaultConfig.versionCode + 2
+//        __arm64-v8a {
+//            versionCode android.defaultConfig.versionCode * 10 + 2
 //            ndk {
 //               abiFilter "arm64-v8a"
 //            }
