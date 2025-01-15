@@ -9,6 +9,7 @@
     <string name="instructions">Press and hold the microphone button while speaking, then select target language</string>
     <string name="dialog_StarOnGitHub">Do you like this app? Please give a star on GitHub or buy the developer a coffee via PayPal.</string>
     <string name="dialog_Later_button">Maybe later</string>
+    <string name="translated_output">Translated text</string>
     <string name="english">Eng</string>
     <string name="spanish">Spa</string>
     <string name="portuguese">Por</string>

@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:cursorVisible="false"
                 android:background="@null"
+                android:contentDescription="@string/translated_output"
                 android:text = "@string/instructions"
                 android:textSize="17sp" />
 
@@ -32,9 +33,9 @@
             android:id="@+id/fabCopy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
             android:contentDescription="@string/copy"
             android:src="@drawable/ic_copy" />
     </RelativeLayout>
