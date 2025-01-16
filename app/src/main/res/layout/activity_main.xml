@@ -113,7 +113,7 @@
         android:indeterminateTint="@color/colorAccent"
         style="?android:attr/progressBarStyleHorizontal"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -124,10 +124,24 @@
             android:layout_width="96dp"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/rounded_button_background"
             android:contentDescription="@string/record"
             android:src="@drawable/ic_mic_48dp" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/btnInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@null"
+            android:contentDescription="@string/info"
+            android:src="@drawable/ic_info_48dp" />
+
+    </RelativeLayout>
 
 </LinearLayout>

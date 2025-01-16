@@ -5,7 +5,9 @@ import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTransPor;
     private Button btnTransHin;
     private Button btnTransRus;
+    private ImageButton btnInfo;
     private ProgressBar processingBar;
 
     private Recorder mRecorder = null;
@@ -70,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
         sdcardDataFolder = this.getExternalFilesDir(null);
         selectedTfliteFile = new File(sdcardDataFolder, DEFAULT_MODEL_TO_USE);
         initModel();
+
+        btnInfo = findViewById(R.id.btnInfo);
+        btnInfo.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/woheller69/seemless#Donate"))));
 
         btnRecord = findViewById(R.id.btnRecord);
 
