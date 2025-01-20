@@ -17,12 +17,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.seemless.asr.RecordBuffer;
-import com.seemless.utils.WaveUtil;
 import com.seemless.asr.Recorder;
 import org.pytorch.IValue;
 import org.pytorch.LiteModuleLoader;
@@ -168,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
         processingBar = findViewById(R.id.processing_bar);
 
-        mRecorder = new Recorder(this);
+        mRecorder = new Recorder(this, 60, 0);  //no realtime processing needed
         mRecorder.setListener(new Recorder.RecorderListener() {
             @Override
             public void onUpdateReceived(String message) {
@@ -216,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
 
          // Run the model
         Thread thread = new Thread(() -> {
-            Log.d("Inference","Inference started");
+            Log.d("Inference","Inference started, language: " + lang);
             if (module != null){
                 IValue outputs = module.forward(IValue.from(inTensor), IValue.from(lang));
 
@@ -226,12 +227,12 @@ public class MainActivity extends AppCompatActivity {
                     tvResult.setText(text);
                     processingBar.setIndeterminate(false);
                 });
-                Log.d("Output","Inference output "+text);
+                Log.d("Output","Inference output: " + text);
             } else {
                 runOnUiThread(() -> {
                     processingBar.setIndeterminate(false);
                 });
-                Log.d("Output","Inference output :"+ "Model not ready");
+                Log.d("Output","Inference output: " + "Model not ready");
             }
 
         });
@@ -246,13 +247,13 @@ public class MainActivity extends AppCompatActivity {
         });
         thread.start();
     }
+
     private void checkRecordPermission() {
         int permission = ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO);
         if (permission == PackageManager.PERMISSION_GRANTED) {
-            Log.d(TAG, "Record permission is granted");
         } else {
-            Log.d(TAG, "Requesting record permission");
             requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, 0);
+            Toast.makeText(this, getString(R.string.need_record_audio_permission), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -269,9 +270,6 @@ public class MainActivity extends AppCompatActivity {
     // Recording calls
     private void startRecording() {
         checkRecordPermission();
-
-        File waveFile= new File(sdcardDataFolder, WaveUtil.RECORDING_FILE);
-        mRecorder.setFilePath(waveFile.getAbsolutePath());
         mRecorder.start();
     }
 
