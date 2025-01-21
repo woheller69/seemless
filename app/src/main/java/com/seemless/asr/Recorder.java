@@ -13,8 +13,6 @@ import androidx.core.app.ActivityCompat;
 import com.seemless.R;
 
 import java.io.ByteArrayOutputStream;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -24,8 +22,8 @@ public class Recorder {
 
     public interface RecorderListener {
         void onUpdateReceived(String message);
-
-        void onDataReceived(float[] samples);
+        void onRealtimeDataReceived(byte[] samples);
+        void onFinalDataReceived(byte[] samples);
     }
 
     private static final String TAG = "Recorder";
@@ -95,9 +93,14 @@ public class Recorder {
             mListener.onUpdateReceived(message);
     }
 
-    private void sendData(float[] samples) {
+    private void sendRealtimeData(byte[] samples) {
         if (mListener != null)
-            mListener.onDataReceived(samples);
+            mListener.onRealtimeDataReceived(samples);
+    }
+
+    private void sendFinalData(byte[] samples) {
+        if (mListener != null)
+            mListener.onFinalDataReceived(samples);
     }
 
     private void recordLoop() {
@@ -166,9 +169,8 @@ public class Recorder {
 
                 // Check if realtimeBuffer has more than realtimeSeconds of data
                 if (bytesForRealtimeSeconds != 0 && realtimeBuffer.size() >= bytesForRealtimeSeconds) {
-                    float[] samples = convertToFloatArray(ByteBuffer.wrap(realtimeBuffer.toByteArray()));
+                    sendRealtimeData(realtimeBuffer.toByteArray()); // Send real-time data for processing
                     realtimeBuffer.reset(); // Clear the buffer for the next accumulation
-                    sendData(samples); // Send real-time data for processing
                 }
             } else {
                 Log.d(TAG, "AudioRecord error, bytes read: " + bytesRead);
@@ -179,8 +181,7 @@ public class Recorder {
         audioRecord.stop();
         audioRecord.release();
 
-        // Save recorded audio data to RecordBuffer
-        RecordBuffer.setOutputBuffer(outputBuffer.toByteArray());
+        sendFinalData(outputBuffer.toByteArray());
         sendUpdate(MSG_RECORDING_DONE);
 
         // Notify the waiting thread that recording is complete
@@ -188,15 +189,6 @@ public class Recorder {
             fileSavedLock.notify(); // Notify that recording is finished
         }
 
-    }
-
-    private float[] convertToFloatArray(ByteBuffer buffer) {
-        buffer.order(ByteOrder.nativeOrder());
-        float[] samples = new float[buffer.remaining() / 2];
-        for (int i = 0; i < samples.length; i++) {
-            samples[i] = buffer.getShort() / 32768.0f;
-        }
-        return samples;
     }
 
 }

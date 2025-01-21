@@ -18,7 +18,7 @@ public class RecordBuffer {
     }
 
     public static float[] getSamples() {
-        if (RecordBuffer.getOutputBuffer()==null) return new float[0];
+        if (RecordBuffer.getOutputBuffer() == null) return new float[0];
         int numSamples = RecordBuffer.getOutputBuffer().length / 2;
         ByteBuffer byteBuffer = ByteBuffer.wrap(RecordBuffer.getOutputBuffer());
         byteBuffer.order(ByteOrder.nativeOrder());

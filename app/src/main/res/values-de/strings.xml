@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Seemless</string>
+    <string name="record">Aufnahme</string>
+    <string name="info">Info</string>
+    <string name="need_record_audio_permission">"Diese App benötigt RECORD_AUDIO Berechtigung"</string>
+    <string name="error_download">Fehler beim Herunterladen</string>
+    <string name="download_model">Modell herunterladen</string>
+    <string name="download_model_text">\nSeemless M4T Unity Modell (CC-BY-NC 4.0) von Hugging Face herunterladen (~480 MB)</string>
+    <string name="start">LOS GEHT\'S</string>
+    <string name="instructions">Halten Sie die Mikrofontaste gedrückt während Sie sprechen und wählen Sie dann die Zielsprache aus.</string>
+    <string name="dialog_StarOnGitHub">Mögen Sie diese App? Bitte vergeben Sie einen Stern auf GitHub oder spendieren Sie dem Entwickler einen Kaffee über PayPal.</string>
+    <string name="dialog_Later_button">Vielleicht später</string>
+    <string name="translated_output">Übersetzter Text</string>
+    <string name="english">Eng</string>
+    <string name="spanish">Spa</string>
+    <string name="portuguese">Por</string>
+    <string name="hindi">Hin</string>
+    <string name="russian">Rus</string>
+    <string name="copy">Kopieren</string>
+</resources>

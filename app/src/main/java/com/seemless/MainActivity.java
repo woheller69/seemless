@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         fabCopy.setOnClickListener(v -> {
             String textToCopy = tvResult.getText().toString();
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("Copied Text", textToCopy);
+            ClipData clip = ClipData.newPlainText(getString(R.string.translated_output), textToCopy);
             clipboard.setPrimaryClip(clip);
         });
 
@@ -183,8 +183,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onDataReceived(float[] samples) {
+            public void onRealtimeDataReceived(byte[] samples) {}
 
+            @Override
+            public void onFinalDataReceived(byte[] samples) {
+                // Save recorded audio data to RecordBuffer
+                RecordBuffer.setOutputBuffer(samples);
             }
         });
         getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
