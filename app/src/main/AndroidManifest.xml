@@ -14,14 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TFLiteAudio"
         tools:targetApi="31">
-        <activity android:name="com.seemless.MainActivity" android:exported="true">
+        <activity android:name="com.seamless.MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name="com.seemless.DownloadActivity"
+            android:name="com.seamless.DownloadActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>

@@ -1,12 +1,12 @@
-package com.seemless.utils;
+package com.seamless.utils;
 
 import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.seemless.R;
-import com.seemless.databinding.ActivityDownloadBinding;
+import com.seamless.R;
+import com.seamless.databinding.ActivityDownloadBinding;
 
 import java.io.BufferedInputStream;
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.seemless.asr;
+package com.seamless.asr;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

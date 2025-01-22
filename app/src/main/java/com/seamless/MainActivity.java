@@ -1,4 +1,4 @@
-package com.seemless;
+package com.seamless;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -23,8 +23,8 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.seemless.asr.RecordBuffer;
-import com.seemless.asr.Recorder;
+import com.seamless.asr.RecordBuffer;
+import com.seamless.asr.Recorder;
 import org.pytorch.IValue;
 import org.pytorch.LiteModuleLoader;
 import org.pytorch.Module;
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         initModel();
 
         btnInfo = findViewById(R.id.btnInfo);
-        btnInfo.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/woheller69/seemless#Donate"))));
+        btnInfo.setOnClickListener(view -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/woheller69/seamless#Donate"))));
 
         btnRecord = findViewById(R.id.btnRecord);
 
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                 else finish();
             }
         });
-        if (GithubStar.shouldShowStarDialog(this)) GithubStar.starDialog(this, "https://github.com/woheller69/seemless");
+        if (GithubStar.shouldShowStarDialog(this)) GithubStar.starDialog(this, "https://github.com/woheller69/seamless");
         checkRecordPermission();
 
     }
@@ -248,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
     private void initModel(){
         Thread thread = new Thread(() -> {
             if (module == null) module = LiteModuleLoader.load(selectedTfliteFile.getAbsolutePath());
+            //if (module == null) module = LiteModuleLoader.load(selectedTfliteFile.getAbsolutePath(),null, Device.VULKAN); // no noticable increase in speed
         });
         thread.start();
     }

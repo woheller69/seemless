@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Seemless</string>
+    <string name="app_name">Seamless</string>
     <string name="record">Record</string>
     <string name="info">Info</string>
     <string name="need_record_audio_permission">"This app needs RECORD_AUDIO permission"</string>
     <string name="error_download">Download error</string>
     <string name="download_model">Download Model</string>
-    <string name="download_model_text">\nDownload Seemless M4T unity model (CC-BY-NC 4.0) from Hugging Face (~480 MB)</string>
+    <string name="download_model_text">\nDownload Seamless M4T unity model (CC-BY-NC 4.0) from Hugging Face (~480 MB)</string>
     <string name="start">START</string>
     <string name="instructions">Press and hold the microphone button while speaking, then select target language.</string>
     <string name="dialog_StarOnGitHub">Do you like this app? Please give a star on GitHub or buy the developer a coffee via PayPal.</string>

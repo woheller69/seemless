@@ -7,21 +7,21 @@ woheller69@t-online.de
 Or via this link (with fees)
 <a href="https://www.paypal.com/donate?hosted_button_id=XVXQ54LBLZ4AA"><img  align="left" src="https://img.shields.io/badge/Donate%20with%20Debit%20or%20Credit%20Card-002991?style=plastic"></a></pre>
 
-# Offline speech to text translation (S2TT) based on Seemless M4T
+# Offline speech to text translation (S2TT) based on Seamless M4T
 
 <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/01.png" width="150"/> 
 
-As a standalone app Seemless can translate between English, Spanish, Portuguese, Hindi, and Russian.
+As a standalone app Seamless can translate between English, Spanish, Portuguese, Hindi, and Russian.
 
 ## Initial Setup
 
-Upon launching Seemless for the first time, the app will download the necessary model from Hugging Face. 
+Upon launching Seamless for the first time, the app will download the necessary model from Hugging Face. 
 Please note that this is the only instance where internet permission is required. 
 Once the model is downloaded, speech to text translation works entirely offline, ensuring your privacy and convenience.
 
-## Using Seemless
+## Using Seamless
 
-To get the most out of Seemless, follow these simple tips:
+To get the most out of Seamless, follow these simple tips:
 
 - Press and hold the microphone button while speaking. 
 - Pause briefly before starting to speak. 
@@ -33,12 +33,12 @@ To get the most out of Seemless, follow these simple tips:
 # License
 This work is licensed under MIT license, © woheller69
 
-- The app uses the Seemless model from [Hugging Face](https://huggingface.co/facebook/seamless-m4t-unity-small), which is published under CC-BY-NC 4.0
+- The app uses the Seamless model from [Hugging Face](https://huggingface.co/facebook/seamless-m4t-unity-small), which is published under CC-BY-NC 4.0
 
 # OTHER APPS
 
-| **RadarWeather** | **Gas Prices** | **Smart Eggtimer** |
-|:---:|:---:|:---:|
+| **RadarWeather** |                                                                                     **Gas Prices**                                                                                     | **Smart Eggtimer** |
+|:---:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---:|
 | [<img src="https://github.com/woheller69/weather/blob/main/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.weather/) | [<img src="https://github.com/woheller69/spritpreise/blob/main/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.spritpreise/) | [<img src="https://github.com/woheller69/eggtimer/blob/main/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.eggtimer/) |
 | **Bubble** | **hEARtest** | **GPS Cockpit** |
 | [<img src="https://github.com/woheller69/Level/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.level/) | [<img src="https://github.com/woheller69/audiometry/blob/new/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.audiometry/) | [<img src="https://github.com/woheller69/gpscockpit/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.gpscockpit/) |
@@ -50,6 +50,6 @@ This work is licensed under MIT license, © woheller69
 | [<img src="https://github.com/woheller69/gptassist/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.gptassist/) | [<img src="https://github.com/woheller69/dumpseeker/blob/main/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.dumpseeker/) | [<img src="https://github.com/woheller69/huggingassist/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.hugassist/) |
 | **FREE Browser** | **whoBIRD** | **PeakOrama** |
 | [<img src="https://github.com/woheller69/browser/blob/newmaster/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.browser/) | [<img src="https://github.com/woheller69/whoBIRD/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.whobird/) | [<img src="https://github.com/woheller69/PeakOrama/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.PeakOrama/) |
-| **Whisper** | **Seemless** | |
-| [<img src="https://github.com/woheller69/whisperIME/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.whisper/) | [<img src="https://github.com/woheller69/seemless/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.seemless/) | |
+| **Whisper** | **Seamless** | |
+| [<img src="https://github.com/woheller69/whisperIME/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.whisper/) | [<img src="https://github.com/woheller69/seemless/blob/master/fastlane/metadata/android/en-US/images/icon.png" width="50">](https://f-droid.org/packages/org.woheller69.seamless/) | |
 

@@ -1,4 +1,4 @@
-package com.seemless.asr;
+package com.seamless.asr;
 
 import android.Manifest;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 
-import com.seemless.R;
+import com.seamless.R;
 
 import java.io.ByteArrayOutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
