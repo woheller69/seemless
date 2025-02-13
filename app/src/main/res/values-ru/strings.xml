@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Seamless</string>
+    <string name="record">Запись</string>
+    <string name="info">Информация</string>
+    <string name="need_record_audio_permission">Для этого приложения требуется разрешение Запись аудио (RECORD_AUDIO)</string>
+    <string name="error_download">Ошибка при скачивании</string>
+    <string name="download_model">Скачать модель</string>
+    <string name="download_model_text">\nСкачать модель Seamless M4T (CC-BY-NC 4.0) из Hugging Face (~480 MB)</string>
+    <string name="start">НАЧАТЬ</string>
+    <string name="instructions">Нажмите и удерживайте кнопку микрофона во время разговора, затем выберите язык перевода.</string>
+    <string name="dialog_StarOnGitHub">Вам нравится это приложение? Пожалуйста, поставьте звёздочку на GitHub или купите разработчику кофе через PayPal.</string>
+    <string name="dialog_Later_button">Может быть попозже</string>
+    <string name="translated_output">Переведённый текст</string>
+    <string name="english">Англ</string>
+    <string name="spanish">Исп</string>
+    <string name="portuguese">Пор</string>
+    <string name="hindi">Хин</string>
+    <string name="russian">Рус</string>
+    <string name="copy">Копировать</string>
+</resources>
