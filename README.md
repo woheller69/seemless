@@ -30,6 +30,10 @@ To get the most out of Seamless, follow these simple tips:
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" height="75">](https://f-droid.org/de/packages/org.woheller69.seemless/)
 
+## Contribute
+
+For translations use https://toolate.othing.xyz/projects/seamless/
+
 # License
 This work is licensed under MIT license, © woheller69
 
