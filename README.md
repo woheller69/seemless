@@ -35,6 +35,7 @@ To get the most out of Seamless, follow these simple tips:
 For translations use https://toolate.othing.xyz/projects/seamless/
 
 # License
+
 This work is licensed under MIT license, © woheller69
 
 - The app uses the Seamless model from [Hugging Face](https://huggingface.co/facebook/seamless-m4t-unity-small), which is published under CC-BY-NC 4.0
